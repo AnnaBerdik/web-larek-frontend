@@ -151,7 +151,12 @@ export type FormErrors = Partial<Record<keyof IOrder, string>>;
 `validateContacts()` — валидация формы контактных данных\
 `addToBasket(product: IProduct)` — добавление товаров в корзину\
 Принимает параметр:\
-`product: IProduct` — товар, добавляемый в корзину
+`item: IProduct` — товар, добавляемый в корзину
+`removeFromBasket(item: IProduct)` - удаление товаров из корзины\
+Принимает параметр:\
+`item: IProduct` — товар, удаляемый из корзины\
+`clearOrder()` - очистка всей формы заказа\
+`clearBasket()` -  очистка корзины\ 
 
 ## Слой отображения 
 
@@ -290,7 +295,8 @@ export type FormErrors = Partial<Record<keyof IOrder, string>>;
 
 `set counter(value: number)` — устанавливает счетчик товаров в корзине\
 `set catalog(items: HTMLElement[])` — выводит карточки товаров внутри каталога\
-`set locked(value: boolean)` — блокирует скролл (при открытии модальных окон)
+`set locked(value: boolean)` — блокирует скролл (при открытии модальных окон)\
+`clearCounter ()` - очистка счетчика корзины
 
 ## Слой коммуникации
 

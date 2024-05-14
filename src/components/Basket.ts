@@ -58,6 +58,10 @@ export class Basket extends Component<IBasket> {
 
     //итоговая стоимость товаров
     set total(value: number) {
-        this.setText(this._total, `${value} синапсисов`);
+        this.setText(this._total, `${value} синапсов`);
+    }
+
+    toggleButton(isDisabled: boolean) {
+      this._button.disabled = isDisabled;
     }
 }

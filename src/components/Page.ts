@@ -45,4 +45,8 @@ export class Page extends Component<IPage> {
       this._wrapper.classList.remove('page__wrapper_locked');
     }
   }
+
+  clearCounter () {
+    this.counter = 0;
+  }
 }

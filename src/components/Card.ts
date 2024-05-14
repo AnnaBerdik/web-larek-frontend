@@ -5,6 +5,14 @@ interface ICardActions {
   onClick: (event: MouseEvent) => void;
 }
 
+const categoryClasses: Record<string, string> = {
+	другое: '_other',
+	дополнительное: '_additional',
+	кнопка: '_button',
+  'софт-скил': '_soft',
+	'хард-скил': '_hard',
+};
+
 export interface ICard {
   category?: string;
   title: string;
@@ -21,6 +29,7 @@ export class Card extends Component<ICard> {
   protected _price: HTMLSpanElement;
   protected _description?: HTMLParagraphElement;
   protected _button?: HTMLButtonElement;
+
   constructor(protected container: HTMLElement, actions?: ICardActions) {
     super(container);
 
@@ -30,8 +39,7 @@ export class Card extends Component<ICard> {
     this._price = ensureElement<HTMLSpanElement>(`.card__price`, container);
     this._description = container.querySelector(`.card__text`);
     this._button = container.querySelector(`.card__button`);
-
-
+  
     if (actions?.onClick) {
       if (this._button) {
         this._button.addEventListener('click', actions.onClick);
@@ -48,7 +56,7 @@ export class Card extends Component<ICard> {
 
   //получает id или пустую строку
   get id(): string {
-    return 
+    return this.container.dataset.id || '';
   }
 
   //устанавливает название товара
@@ -88,7 +96,8 @@ export class Card extends Component<ICard> {
 
    //устанавливает категорию
    set category(value: string) {
-    this.setText(this._category, value);
+		this.setText(this._category, value);
+		this._category.classList.add('card__category' + categoryClasses[value]);
   }
 
   // получает категорию

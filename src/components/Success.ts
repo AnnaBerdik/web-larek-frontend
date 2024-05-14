@@ -19,7 +19,7 @@ export class Success extends Component<ISuccess> {
     this._close = ensureElement<HTMLButtonElement>('.order-success__close', this.container);
     this._total = ensureElement<HTMLParagraphElement>('.order-success__description', this.container);
 
-    this._total.textContent = `Списано ${total} синапсов`;
+    this.setText(this._total, `${total} синапсов`);
 
     if (actions?.onClick) {
       this._close.addEventListener('click', actions.onClick);
