@@ -1,17 +1,10 @@
 import { Component } from './base/Component';
 import { ensureElement } from '../utils/utils';
+import { categoryClasses } from '../utils/constants';
 
 interface ICardActions {
   onClick: (event: MouseEvent) => void;
 }
-
-const categoryClasses: Record<string, string> = {
-	другое: '_other',
-	дополнительное: '_additional',
-	кнопка: '_button',
-  'софт-скил': '_soft',
-	'хард-скил': '_hard',
-};
 
 export interface ICard {
   category?: string;

@@ -97,8 +97,8 @@ export class AppState extends Model<IAppState> {
  
   //добавление товаров в корзину 
   addToBasket(item: IProduct) { 
-			this.basket.push(item);
-      this.emitChanges('basket:update');   
+		this.basket.push(item);
+    this.emitChanges('basket:update');   
   } 
 
   // Удаление товаров из корзины
