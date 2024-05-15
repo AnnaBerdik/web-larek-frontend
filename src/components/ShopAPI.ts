@@ -1,8 +1,10 @@
 import { Api } from './base/api';
-import { IOrderForm,
-		 IOrderResult,
-		 IProduct,
-		 ApiListResponse} from '../types/index';
+import {
+	IOrderForm,
+	IOrderResult,
+	IProduct,
+	ApiListResponse,
+} from '../types/index';
 
 export interface IShopAPI {
 	getProductList: () => Promise<IProduct[]>;
