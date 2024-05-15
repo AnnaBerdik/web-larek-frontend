@@ -42,13 +42,6 @@ yarn build
 ```
 ## Описание данных
 
-### Тип списка ответа
-```
-export type ApiListResponse<Type> = {
-  total: number,
-  items: Type[]
-}
-```
 ### Интерфейс продукта
 ```
 export interface IProduct {
