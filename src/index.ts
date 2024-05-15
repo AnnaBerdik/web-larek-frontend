@@ -7,13 +7,11 @@ import { AppState, CatalogChangeEvent } from './components/AppData';
 import { Card } from './components/Card';
 import { Page } from './components/Page';
 import { cloneTemplate, ensureElement, createElement } from './utils/utils';
-import {
-	FieldsInput,
-	IContactsForm,
-	IProduct,
-	IOrderForm,
-	PaymentMethods,
-} from './types';
+import { FieldsInput,
+		 IContactsForm,
+		 IProduct,
+		 IOrderForm,
+		 PaymentMethods} from './types';
 import { Basket } from './components/Basket';
 import { Modal } from './components/Modal';
 import { Success } from './components/Success';

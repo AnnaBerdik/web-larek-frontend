@@ -1,12 +1,10 @@
 import { Model } from './base/Model';
-import {
-	IProduct,
-	IOrder,
-	IOrderForm,
-	FormErrors,
-	IAppState,
-	IContactsForm,
-} from '../types';
+import { IProduct,
+		 IOrder,
+		 IOrderForm,
+		 FormErrors,
+		 IAppState,
+		 IContactsForm } from '../types';
 
 export type CatalogChangeEvent = {
 	catalog: IProduct[];
