@@ -1,5 +1,10 @@
-import { Api, ApiListResponse } from './base/api';
-import { IOrderForm, IOrderResult, IProduct } from '../types';
+import { Api } from './base/api';
+import {
+	IOrderForm,
+	IOrderResult,
+	IProduct,
+	ApiListResponse,
+} from '../types/index';
 
 export interface IShopAPI {
 	getProductList: () => Promise<IProduct[]>;
@@ -32,7 +37,7 @@ export class ShopAPI extends Api implements IShopAPI {
 			}))
 		);
 	}
-	
+
 	//оформить заказ
 	orderProducts(order: IOrderForm): Promise<IOrderResult> {
 		return this.post('/order', order).then((data: IOrderResult) => data);
