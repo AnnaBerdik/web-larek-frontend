@@ -173,12 +173,12 @@ events.on('card:select', (item: IProduct) => {
 
 events.on('preview:changed', (item: IProduct) => {
 	const showItem = (item: IProduct) => {
-		const existingElement = appData.basket.find(
+		const Element = appData.basket.find(
 			(product) => item.id === product.id
 		);
 		const card = new Card(cloneTemplate(cardPreviewTemplate), {
 			onClick: () => {
-				if (existingElement) {
+				if (Element) {
 					events.emit('basket:open');
 				} else {
 					appData.addToBasket(item);
@@ -190,7 +190,7 @@ events.on('preview:changed', (item: IProduct) => {
 				}
 			},
 		});
-		card.inBasket = !!existingElement;
+		card.inBasket = !!Element;
 		modal.render({
 			content: card.render({
 				title: item.title,
@@ -209,7 +209,7 @@ events.on('basket:update', () => {
 	basket.items = appData.basket.map((item) => {
 		const card = new Card(cloneTemplate(cardBasketTemplate), {
 			onClick: () => {
-				events.emit('basket:remove', { itemId: item.id });
+				events.emit('basket:remove', item);
 			},
 		});
 
@@ -228,12 +228,9 @@ events.on('basket:update', () => {
 });
 
 events.on('basket:remove', (item: IProduct) => {
-	const index = appData.basket.findIndex((prod) => prod.id === item.id);
 	appData.removeFromBasket(item);
-	appData.basket.splice(index, 1);
-	events.emit('basket:update');
 	page.counter = appData.basket.length;
-});
+  });
 
 // Блокируем прокрутку страницы если открыто модальное окно
 events.on('modal:open', () => {

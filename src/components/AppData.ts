@@ -109,8 +109,11 @@ export class AppState extends Model<IAppState> {
 
 	// Удаление товаров из корзины
 	removeFromBasket(item: IProduct) {
-		this.basket = this.basket.filter((it) => it != item);
-		this.emitChanges('basket:update');
+		const index = this.basket.findIndex((prod) => prod === item);
+		if (index !== -1) {
+		  this.basket.splice(index, 1);
+		  this.emitChanges('basket:update');
+		}
 	}
 
 	clearOrder() {
